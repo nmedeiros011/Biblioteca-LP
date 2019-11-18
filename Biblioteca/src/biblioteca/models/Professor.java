@@ -2,13 +2,12 @@ package biblioteca.models;
 
 public class Professor {
     String nome;
-    
-    Professor(){
-        this("");
+
+    public String getNome() {
+        return nome;
     }
-    
-    Professor(String nome){
+
+    public void setNome(String nome) {
         this.nome = nome;
     }
-    
 }

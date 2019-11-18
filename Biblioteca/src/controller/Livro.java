@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Livro {
-    public String arquivo = "Aluno.txt";
+    public String arquivo = "Livro.txt";
     
     public void salvar(biblioteca.models.Livro livro) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo, true));
