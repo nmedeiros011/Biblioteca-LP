@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Cadastrar {
     Scanner s = new Scanner(System.in);
-    biblioteca.models.Livro livro = new biblioteca.models.Livro();
+    
     biblioteca.models.Aluno aluno = new biblioteca.models.Aluno();
     biblioteca.models.Professor professor = new biblioteca.models.Professor();
     
@@ -14,6 +14,11 @@ public class Cadastrar {
     controller.Aluno cAluno = new controller.Aluno();
     controller.Professor cProfessor = new controller.Professor();
     
+    /**
+     *
+     * @param livro
+     * @throws IOException
+     */
     public void cadLivro(biblioteca.models.Livro livro) throws IOException{
         System.out.println("Digite o titulo do livro");
         livro.setTitulo(s.next());
