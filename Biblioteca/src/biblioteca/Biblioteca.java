@@ -11,15 +11,16 @@ public class Biblioteca {
         controller.Livro cLivro = new controller.Livro();
         
         
-        cadastro.cadLivro();
+        //cadastro.cadLivro();
         cadastro.cadAluno();
-        cadastro.cadProfessor();
+        //cadastro.cadProfessor();
         
                
 //        models.Livro[] l = cLivro.getAll();
 //        for(models.Livro a : l){
 //            System.out.println(a.getAutor());
 //        }
+
     }
     
 }
