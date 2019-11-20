@@ -9,14 +9,28 @@ import java.io.IOException;
 public class Livro {
     public String arquivo = "Livro.txt";
     
-    public void salvar(biblioteca.models.Livro livro) throws IOException {
+    public void salvar(models.Livro livro) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo, true));
-        writer.append(String.format("%s;%s;%s;%s;%s", livro.getISBN(), livro.getTitulo(), livro.getAutor(), livro.getQuantidade(), livro.isDisponivel()));
+        writer.append(String.format("%s;%s;%s;%s;%s;%s;",livro.getCodigo(), livro.getISBN(), livro.getTitulo(), livro.getAutor(), livro.getQuantidade(), livro.isDisponivel()));
         writer.newLine();
         writer.close();
     }
     
-    public biblioteca.models.Livro[] getAll() throws IOException{
+    public int getLast() throws IOException{
+        BufferedReader reader = new BufferedReader(new FileReader(arquivo));
+        int counter = 0;
+        while(reader.readLine()!= null)
+            counter++;
+        int ultimoCodigo = 0;
+        if(reader.ready()){
+            String linha = reader.readLine();
+            ultimoCodigo = Integer.parseInt(linha.split(";")[0]);
+        }
+        
+        return ultimoCodigo;
+    }
+    
+    public models.Livro[] getAll() throws IOException{
         BufferedReader reader = new BufferedReader(new FileReader(arquivo));
         int counter = 0;
         
@@ -24,16 +38,16 @@ public class Livro {
             counter++;        
         
         reader = new BufferedReader(new FileReader(arquivo));
-        biblioteca.models.Livro[] livro = new biblioteca.models.Livro[counter];
+        models.Livro[] livro = new models.Livro[counter];
         
-        for(int i=0;reader.ready();i++){
-            livro[i]=new biblioteca.models.Livro();
+        for(int i=1;reader.ready();i++){
+            livro[i]=new models.Livro();
             String linha = reader.readLine();
-            livro[i].setISBN(linha.split(";")[0]);
-            livro[i].setTitulo(linha.split(";")[1]);
-            livro[i].setAutor(linha.split(";")[2]);
-            livro[i].setQuantidade(Integer.parseInt(linha.split(";")[3]));
-            livro[i].setDisponivel(Boolean.parseBoolean(linha.split(";")[4]));            
+            livro[i].setISBN(linha.split(";")[1]);
+            livro[i].setTitulo(linha.split(";")[2]);
+            livro[i].setAutor(linha.split(";")[3]);
+            livro[i].setQuantidade(Integer.parseInt(linha.split(";")[4]));
+            livro[i].setDisponivel(Boolean.parseBoolean(linha.split(";")[5]));
         }
         
         return livro;

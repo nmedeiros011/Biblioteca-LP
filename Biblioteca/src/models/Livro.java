@@ -1,20 +1,20 @@
 
-package biblioteca.models;
+package models;
 
 public class Livro  {
+    int codigo;
     String ISBN;
     String titulo;
     String autor;
     int quantidade;
     boolean disponivel;
     
-//    Livro(String isbn, String titulo, String autor, int quantidade, boolean disponivel){
-//        this.ISBN = isbn;
-//        this.titulo = titulo;
-//        this.autor = autor;
-//        this.quantidade = quantidade;
-//        this.disponivel = disponivel;
-//    }
+    public int getCodigo(){
+        return codigo;
+    }
+    public void setCodigo(int codigo){
+        this.codigo = codigo;
+    }
 
     public String getISBN() {
         return ISBN;

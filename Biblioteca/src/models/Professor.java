@@ -1,7 +1,15 @@
-package biblioteca.models;
+package models;
 
 public class Professor {
+    int codigo;
     String nome;
+    
+    public int getCodigo(){
+        return codigo;
+    }
+    public void setCodigo(int codigo){
+        this.codigo = codigo;
+    }
 
     public String getNome() {
         return nome;

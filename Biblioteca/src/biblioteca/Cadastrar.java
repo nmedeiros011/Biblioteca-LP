@@ -1,55 +1,74 @@
 package biblioteca;
 
-import biblioteca.models.*;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Cadastrar {
     Scanner s = new Scanner(System.in);
     
-    biblioteca.models.Aluno aluno = new biblioteca.models.Aluno();
-    biblioteca.models.Professor professor = new biblioteca.models.Professor();
+    models.Aluno aluno = new models.Aluno();
+    models.Professor professor = new models.Professor();
     
     controller.Livro cLivro = new controller.Livro();
     controller.Aluno cAluno = new controller.Aluno();
     controller.Professor cProfessor = new controller.Professor();
     
     public void cadLivro() throws IOException{
-        biblioteca.models.Livro livro = new biblioteca.models.Livro();
+        models.Livro livro = new models.Livro();
+        
+        int codigo = cLivro.getLast();
+        codigo++;
+        
         System.out.println("Digite o titulo do livro");
-        String titulo = s.next();
+        String titulo = s.nextLine();
         
         System.out.println("Digite o nome do autor do livro");
-        String autor = s.next();
+        String autor = s.nextLine();
         
         System.out.println("Digite o ISBN do livro");
-        String isbn = s.next();
+        String isbn = s.nextLine();
         
         System.out.println("Digite a quantidade de exemplares desse do livro");
         int qtd = s.nextInt();
-        livro.setDisponivel(true);
 
+        livro.setCodigo(codigo);
+        livro.setISBN(isbn);
         livro.setTitulo(titulo);
         livro.setAutor(autor);
-        livro.setISBN(isbn);
         livro.setQuantidade(qtd);
+        livro.setDisponivel(true);
         
         cLivro.salvar(livro);     
     }
     
-    public void cadAluno(biblioteca.models.Aluno aluno) throws IOException{
-        System.out.println("Digite o nome do aluno");
-        aluno.setNome(s.next());
-        System.out.println("Digite a data de nascimento do aluno (no formato __/__/____)");
-        aluno.setDataNascimento(s.next());
-        System.out.println("Digite o RA do aluno");
-        aluno.setRA(s.next());
+    public void cadAluno() throws IOException{
         
+        //TO-DO:::::::adicionar o campo bloqueado, para quando o aluno nao puder pegar livro
+        int codigo = cLivro.getLast();
+        codigo++;
+        models.Aluno aluno = new models.Aluno();
+        
+        System.out.println("Digite o nome do aluno");
+        String nome = s.next();
+        System.out.println("Digite a data de nascimento do aluno (no formato __/__/____)");
+        String dataN = s.next();
+        System.out.println("Digite o RA do aluno");
+        String RA = s.next();
+        
+        aluno.setCodigo(codigo);
+        aluno.setNome(nome);
+        aluno.setDataNascimento(dataN);
+        aluno.setRA(RA);
+                
         cAluno.salvar(aluno);
     }
     
-    public void cadProfessor(biblioteca.models.Professor professor)  throws IOException{
-        System.out.println("Digite o nome do professot");
+    public void cadProfessor()  throws IOException{
+        models.Professor professor = new models.Professor();
+        int codigo = cLivro.getLast();
+        codigo++;
+        professor.setCodigo(codigo);
+        System.out.println("Digite o nome do professor");
         professor.setNome(s.next());
         
         cProfessor.salvar(professor);
