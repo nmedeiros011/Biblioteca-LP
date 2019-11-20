@@ -14,24 +14,27 @@ public class Cadastrar {
     controller.Aluno cAluno = new controller.Aluno();
     controller.Professor cProfessor = new controller.Professor();
     
-    /**
-     *
-     * @param livro
-     * @throws IOException
-     */
-    public void cadLivro(biblioteca.models.Livro livro) throws IOException{
+    public void cadLivro() throws IOException{
+        biblioteca.models.Livro livro = new biblioteca.models.Livro();
         System.out.println("Digite o titulo do livro");
-        livro.setTitulo(s.next());
+        String titulo = s.next();
+        
         System.out.println("Digite o nome do autor do livro");
-        livro.setAutor(s.next());
+        String autor = s.next();
+        
         System.out.println("Digite o ISBN do livro");
-        livro.setISBN(s.next());
-        System.out.println("Digite o ISBN do livro");
-        livro.setQuantidade(s.nextInt());
+        String isbn = s.next();
+        
+        System.out.println("Digite a quantidade de exemplares desse do livro");
+        int qtd = s.nextInt();
         livro.setDisponivel(true);
+
+        livro.setTitulo(titulo);
+        livro.setAutor(autor);
+        livro.setISBN(isbn);
+        livro.setQuantidade(qtd);
         
-        cLivro.salvar(livro);
-        
+        cLivro.salvar(livro);     
     }
     
     public void cadAluno(biblioteca.models.Aluno aluno) throws IOException{

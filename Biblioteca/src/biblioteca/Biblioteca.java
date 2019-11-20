@@ -6,6 +6,7 @@ import java.io.IOException;
 public class Biblioteca {
 
     public static void main(String[] args) throws IOException {
+        Cadastrar cadastro = new Cadastrar();
         biblioteca.models.Livro livro = new biblioteca.models.Livro();
         controller.Livro cLivro = new controller.Livro();
         
@@ -17,7 +18,8 @@ public class Biblioteca {
 //        livro.setDisponivel(true);
 //        
 //        cLivro.salvar(livro);
-        Cadastrar.cadLivro cadLivro = new Cadastrar.cadLivro();
+        
+        cadastro.cadLivro();
         
                
         biblioteca.models.Livro[] l = cLivro.getAll();
