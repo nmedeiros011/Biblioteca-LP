@@ -39,9 +39,10 @@ public class Livro {
         reader = new BufferedReader(new FileReader(arquivo));
         models.Livro[] livro = new models.Livro[counter];
         
-        for(int i=1;reader.ready();i++){
+        for(int i=0;reader.ready();i++){
             livro[i]=new models.Livro();
             String linha = reader.readLine();
+            livro[i].setCodigo(Integer.parseInt(linha.split(";")[0]));
             livro[i].setISBN(linha.split(";")[1]);
             livro[i].setTitulo(linha.split(";")[2]);
             livro[i].setAutor(linha.split(";")[3]);

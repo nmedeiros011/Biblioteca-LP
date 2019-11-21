@@ -1,5 +1,4 @@
-ID;ISBN;TITULO;AUTOR;QUANTIDADE;DISPONIBILIDADE;
-1;123456789;Harry Potter; JK Rowling;3; true; 
+1;123456789;Harry Potter;JK Rowling;3; true; 
 2;123456789;Deuses Americanos;Neil Gaiman;2;true;
 3;9781624061547;Divergente;Veronica Roth;1;true;
 4;9788525406842;Os Inimigos;Maximo Gorki;2;true;
