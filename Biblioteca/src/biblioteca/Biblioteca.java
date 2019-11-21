@@ -13,7 +13,7 @@ public class Biblioteca {
         
         //cadastro.cadLivro();
         cadastro.cadAluno();
-        //cadastro.cadProfessor();
+        cadastro.cadProfessor();
         
                
 //        models.Livro[] l = cLivro.getAll();

@@ -44,16 +44,16 @@ public class Cadastrar {
     public void cadAluno() throws IOException{
         
         //TO-DO:::::::adicionar o campo bloqueado, para quando o aluno nao puder pegar livro
-        int codigo = cLivro.getLast();
+        int codigo = cAluno.getLast();
         codigo++;
         models.Aluno aluno = new models.Aluno();
         
         System.out.println("Digite o nome do aluno");
-        String nome = s.next();
+        String nome = s.nextLine();
         System.out.println("Digite a data de nascimento do aluno (no formato __/__/____)");
-        String dataN = s.next();
+        String dataN = s.nextLine();
         System.out.println("Digite o RA do aluno");
-        String RA = s.next();
+        String RA = s.nextLine();
         
         aluno.setCodigo(codigo);
         aluno.setNome(nome);
@@ -65,11 +65,11 @@ public class Cadastrar {
     
     public void cadProfessor()  throws IOException{
         models.Professor professor = new models.Professor();
-        int codigo = cLivro.getLast();
+        int codigo = cProfessor.getLast();
         codigo++;
         professor.setCodigo(codigo);
         System.out.println("Digite o nome do professor");
-        professor.setNome(s.next());
+        professor.setNome(s.nextLine());
         
         cProfessor.salvar(professor);
     }

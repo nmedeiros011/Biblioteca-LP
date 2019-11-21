@@ -9,25 +9,24 @@ import java.io.IOException;
 public class Livro {
     public String arquivo = "Livro.txt";
     
+    public int getLast() throws IOException{
+        BufferedReader reader = new BufferedReader(new FileReader(arquivo));
+        
+        String linha = reader.readLine();
+        do
+            linha = reader.readLine();
+        while(reader.ready());
+        
+        int ultimoCodigo = Integer.parseInt(linha.split(";")[0]);
+        
+        return ultimoCodigo;
+    }
+    
     public void salvar(models.Livro livro) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo, true));
         writer.append(String.format("%s;%s;%s;%s;%s;%s;",livro.getCodigo(), livro.getISBN(), livro.getTitulo(), livro.getAutor(), livro.getQuantidade(), livro.isDisponivel()));
         writer.newLine();
         writer.close();
-    }
-    
-    public int getLast() throws IOException{
-        BufferedReader reader = new BufferedReader(new FileReader(arquivo));
-        int counter = 0;
-        while(reader.readLine()!= null)
-            counter++;
-        int ultimoCodigo = 0;
-        if(reader.ready()){
-            String linha = reader.readLine();
-            ultimoCodigo = Integer.parseInt(linha.split(";")[0]);
-        }
-        
-        return ultimoCodigo;
     }
     
     public models.Livro[] getAll() throws IOException{
