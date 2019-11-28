@@ -3,3 +3,5 @@
 3;Marcia;24/09/2003;567567456;
 4;Carminha de Oliveira;04/03/2000;345678345;
 5;nomeAluno;nascAluno;234343;
+6;Nicolli;03/06/1998;99999999;
+7;linda;01/05/2000;8888;
